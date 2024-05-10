@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void checkVoiceRecognition() {
-		// Check if voice recognition is present
+		
 		PackageManager pm = getPackageManager();
 		List<ResolveInfo> activities = pm.queryIntentActivities(new Intent(
 				RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
@@ -107,7 +107,7 @@ public class MainActivity extends Activity {
 	    @Override
 	    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3)
 	    {
-	        //extract selected
+	       
 	        selected = adapter.getItem(arg2);
 	    }
 	};
@@ -115,15 +115,9 @@ public class MainActivity extends Activity {
 	public void speak(View view) {
 		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 
-		// Specify the calling package to identify your application
 		intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, getClass()
 				.getPackage().getName());
-
-		// Given an hint to the recognizer about what the user is going to say
-		// There are two form of language model available
-		// 1.LANGUAGE_MODEL_WEB_SEARCH : For short phrases
-		// 2.LANGUAGE_MODEL_FREE_FORM : If not sure about the words or phrases
-		// and its domain.
+		
 		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
 				RecognizerIntent.LANGUAGE_MODEL_WEB_SEARCH);
 
