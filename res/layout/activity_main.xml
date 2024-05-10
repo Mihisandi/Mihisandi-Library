@@ -1,0 +1,92 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+   <RelativeLayout
+                android:id="@+id/frame_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/header3" 
+        android:id="@+id/header">
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/footer2" >
+    </RelativeLayout>
+
+    
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/footer"
+    android:layout_below="@+id/header" 
+        
+     >
+
+    <TextView
+        android:id="@+id/Head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:text="@string/lbd"
+        android:textColor="#53CFCF"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/SearchButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/Auto"
+        android:layout_alignBottom="@+id/Auto"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/search"
+        android:height="10dp"
+        android:onClick="click" />
+
+    <AutoCompleteTextView
+        android:id="@+id/Auto"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/Head"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="42dp"
+        android:layout_toLeftOf="@+id/SearchButton"
+        android:ems="15"
+        android:width="25dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/SearchButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="speak"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/voice" />
+
+</RelativeLayout>
+</RelativeLayout>
+
+<ListView
+    android:id="@+id/slider_list"
+    android:layout_width="240dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="#ffffff"
+    android:choiceMode="singleChoice"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="0dp" />
+
+</android.support.v4.widget.DrawerLayout >
