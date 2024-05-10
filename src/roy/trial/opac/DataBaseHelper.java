@@ -42,11 +42,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     	boolean dbExist = checkDataBase();
  
     	if(dbExist){
-    		//do nothing - database already exist
+    		
     	}else{
  
-    		//By calling this method and empty database will be created into the default system path
-               //of your application so we are gonna be able to overwrite that database with our database.
+    		
         	this.getReadableDatabase();
  
         	try {
@@ -73,7 +72,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
  
     	}catch(SQLiteException e){
  
-    		//database does't exist yet.
+    	
  
     	}
  
@@ -89,23 +88,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
    
     private void copyDataBase() throws IOException{
  
-    	//Open your local db as the input stream
     	InputStream myInput = myContext.getAssets().open(DB_NAME);
- 
-    	// Path to the just created empty db
+    	
     	String outFileName = DB_PATH + DB_NAME;
  
-    	//Open the empty db as the output stream
     	OutputStream myOutput = new FileOutputStream(outFileName);
  
-    	//transfer bytes from the inputfile to the outputfile
     	byte[] buffer = new byte[1024];
     	int length;
     	while ((length = myInput.read(buffer))>0){
     		myOutput.write(buffer, 0, length);
     	}
  
-    	//Close the streams
     	myOutput.flush();
     	myOutput.close();
     	myInput.close();
@@ -114,7 +108,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
  
     public void openDataBase() throws SQLException{
  
-    	//Open the database
         String myPath = DB_PATH + DB_NAME;
     	myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
  
@@ -143,15 +136,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	public Cursor search(String name) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = 
-	            db.query("library", // a. table
-	            new String[] {"_id", "name", "author"}, // b. column names
-	            "name LIKE ?", // c. selections 
-	            new String[] { "%" + name + "%" }, // d. selections args
-	            null, // e. group by
-	            null, // f. having
-	            null, // g. order by
-	            null); // h. limit
-		//Cursor cursor = db.rawQuery("SELECT name FROM library WHERE _id=1, selectionArgs)
+	            db.query("library", 
+	            new String[] {"_id", "name", "author"}, 
+	            "name LIKE ?",
+	            new String[] { "%" + name + "%" }, 
+	            null,
+	            null, 
+	            null, 
+	            null); 
+	
 		
 		
 		return cursor;
@@ -160,16 +153,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	public Cursor searchAuthor(String author, String exceptions) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = 
-	            db.query("library", // a. table
-	            new String[] {"_id", "name", "author"}, // b. column names
-	            "author LIKE ? and _id NOT IN (?)", // c. selections 
-	            new String[] { "%" + author + "%", exceptions }, // d. selections args
-	            null, // e. group by
-	            null, // f. having
-	            null, // g. order by
-	            null); // h. limit
-		//Cursor cursor = db.rawQuery("SELECT name FROM library WHERE _id=1, selectionArgs)
-		
+	            db.query("library", 
+	            new String[] {"_id", "name", "author"}, 
+	            "author LIKE ? and _id NOT IN (?)",  
+	            new String[] { "%" + author + "%", exceptions }, 
+	            null, 
+	            null,
+	            null, 
+	            null);
+	
 		return cursor;
 	}
 	
@@ -178,15 +170,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		book b;
 		b = new book();
 		Cursor cursor = 
-	            db.query("library", // a. table
-	            new String[] {"_id", "name", "author", "year", "shelf", "publisher", "copies"}, // b. column names
-	            "_id = ?", // c. selections 
-	            new String[] { String.valueOf(id) }, // d. selections args
-	            null, // e. group by
-	            null, // f. having
-	            null, // g. order by
-	            null); // h. limit
-		//Cursor cursor = db.rawQuery("SELECT name FROM library WHERE _id=1, selectionArgs)
+	            db.query("library", 
+	            new String[] {"_id", "name", "author", "year", "shelf", "publisher", "copies"}, 
+	            "_id = ?",  
+	            new String[] { String.valueOf(id) }, 
+	            null, 
+	            null, 
+	            null, 
+	            null); 
+	
 		
 		if (cursor != null && cursor.getCount() > 0) {
 	        cursor.moveToFirst();
@@ -219,8 +211,4 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	}
  
 	
-        // Add your public helper methods to access and get content from the database.
-       // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
-       // to you to create adapters for your views.
- 
 }
