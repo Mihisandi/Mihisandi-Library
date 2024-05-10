@@ -18,7 +18,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-	//The Android's default system path of your application database.
     @SuppressLint("SdCardPath")
 	private static String DB_PATH = "/data/data/roy.trial.opac/databases/";
  
@@ -30,20 +29,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
  
     private final Context myContext;
  
-    /**
-     * Constructor
-     * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
-     * @param context
-     */
+ 
     public DataBaseHelper(Context context) {
  
     	super(context, DB_NAME, null, 1);
         this.myContext = context;
     }	
  
-  /**
-     * Creates a empty database on the system and rewrites it with your own database.
-     * */
+
     public void createDataBase() throws IOException{
  
     	boolean dbExist = checkDataBase();
@@ -69,10 +62,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
  
     }
  
-    /**
-     * Check if the database already exist to avoid re-copying the file each time you open the application.
-     * @return true if it exists, false if it doesn't
-     */
+  
     private boolean checkDataBase(){
  
     	SQLiteDatabase checkDB = null;
@@ -96,11 +86,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     	return checkDB != null ? true : false;
     }
  
-    /**
-     * Copies your database from your local assets-folder to the just created empty database in the
-     * system folder, from where it can be accessed and handled.
-     * This is done by transfering bytestream.
-     * */
+   
     private void copyDataBase() throws IOException{
  
     	//Open your local db as the input stream
@@ -167,10 +153,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	            null); // h. limit
 		//Cursor cursor = db.rawQuery("SELECT name FROM library WHERE _id=1, selectionArgs)
 		
-		/*if (cursor != null && cursor.getCount() > 0) {
-	        cursor.moveToFirst();
-			name = cursor.getString(0);
-		}*/
+		
 		return cursor;
 	}
 	
@@ -187,10 +170,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	            null); // h. limit
 		//Cursor cursor = db.rawQuery("SELECT name FROM library WHERE _id=1, selectionArgs)
 		
-		/*if (cursor != null && cursor.getCount() > 0) {
-	        cursor.moveToFirst();
-			name = cursor.getString(0);
-		}*/
 		return cursor;
 	}
 	
