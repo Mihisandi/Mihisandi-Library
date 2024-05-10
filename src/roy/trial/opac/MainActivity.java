@@ -97,7 +97,7 @@ public class MainActivity extends Activity {
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+		
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -121,13 +121,11 @@ public class MainActivity extends Activity {
 		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
 				RecognizerIntent.LANGUAGE_MODEL_WEB_SEARCH);
 
-		// If number of Matches is not selected then return show toast message
+	
 
 		int noOfMatches = 1;
-		// Specify how many results you want to receive. The results will be
-		// sorted where the first result is the one with higher confidence.
+
 		intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, noOfMatches);
-		// Start the Voice recognizer activity for the result.
 		startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
 	}
 	
@@ -135,7 +133,6 @@ public class MainActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == VOICE_RECOGNITION_REQUEST_CODE)
 
-			// If Voice recognition is successful then it returns RESULT_OK
 			if (resultCode == RESULT_OK) {
 
 				ArrayList<String> textMatchList = data
