@@ -46,37 +46,37 @@ public class ResultActivity extends Activity {
 		Intent i = getIntent();
 		
 		tl = (TableLayout) findViewById(R.id.main_table);
-		//tl.setBackgroundColor(Color.BLACK);
+		
 		
 		TableRow tr_head = new TableRow(this);
 		tr_head.setId(10);
-		tr_head.setBackgroundColor(Color.GRAY);
+		tr_head.setBackgroundColor(Color.WHITE);
 		tr_head.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		
 		
 		TextView label_sno = new TextView(this);
         label_sno.setId(20);
         label_sno.setText("ID");
-        label_sno.setTextColor(Color.WHITE);
+        label_sno.setTextColor(Color.GRAY);
         label_sno.setGravity(Gravity.CENTER);
         label_sno.setPadding(5, 5, 5, 5);
         tr_head.addView(label_sno);
         
         TextView label_name = new TextView(this);
-        label_name.setId(21);// define id that must be unique
-        label_name.setText("Title"); // set the text for the header 
+        label_name.setId(21);
+        label_name.setText("Title"); 
         label_name.setGravity(Gravity.CENTER);
-        label_name.setTextColor(Color.WHITE); // set the color
-        label_name.setPadding(5, 5, 5, 5); // set the padding (if required)
-        tr_head.addView(label_name); // add the column to the table row here
-        
+        label_name.setTextColor(Color.GRAY); 
+        label_name.setPadding(5, 5, 5, 5); 
+        tr_head.addView(label_name); 
+		
         TextView label_author = new TextView(this);
-        label_author.setId(22);// define id that must be unique
-        label_author.setText("Author"); // set the text for the header 
+        label_author.setId(22);
+        label_author.setText("Author"); 
         label_author.setGravity(Gravity.CENTER);
-        label_author.setTextColor(Color.WHITE); // set the color
-        label_author.setPadding(5, 5, 5, 5); // set the padding (if required)
-        tr_head.addView(label_author); // add the column to the table row here
+        label_author.setTextColor(Color.GRAY); 
+        label_author.setPadding(5, 5, 5, 5); 
+        tr_head.addView(label_author); 
         
         tl.addView(tr_head, new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         
